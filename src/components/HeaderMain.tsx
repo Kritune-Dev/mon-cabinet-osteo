@@ -41,7 +41,7 @@ export default function HeaderMain() {
         {/* Mobile buttons */}
         <div className="md:hidden flex items-center space-x-3">
           <a
-            href="https://rdv.o7planning.com/osteopathe-corentin-bacconnais"
+            href="https://www.doctolib.fr/osteopathe/saint-nazaire/corentin-bacconnais/booking/motives?specialityId=10&telehealth=false&placeId=practice-598028"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-rdv bg-[#E8D5CC] text-[#543C30] px-4 py-1 rounded uppercase tracking-widest font-semibold"
