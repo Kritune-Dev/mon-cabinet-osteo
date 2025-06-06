@@ -1,5 +1,6 @@
 import './globals.css'
 import { ReactNode } from 'react'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import HeaderMain from '@/components/HeaderMain'
 import HeaderSecondary from '@/components/HeaderSecondary'
 import SidebarInfoCard from '@/components/SidebarInfoCard'
@@ -12,15 +13,16 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
+      <SpeedInsights />
       <body className="bg-background font-sans text-text min-h-screen">
         <header>
           <HeaderMain />
           <HeaderSecondary />
         </header>
 
-        <div className="flex flex-col lg:flex-row max-w-[1400px] mx-auto w-full px-4 lg:px-8 py-8">
+        <div className="flex flex-col lg:flex-row max-w-[1400px] mx-auto w-full  py-8">
           {/* Main content */}
-          <main className="w-full lg:w-3/5">
+          <main className="w-full lg:w-3/5 bg-white/90 border border-[#E8D5CC] rounded-xl shadow-lg p-8">
             {children}
           </main>
           {/* Sidebar zone with colored background */}

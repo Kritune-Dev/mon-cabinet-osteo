@@ -101,7 +101,7 @@ export default function SidebarInfoCard() {
             title="Carte Google Maps"
             src={siteConfig.mapsUrlEmbedded}
             width="100%"
-            height="200"
+            height="400"
             className="rounded-lg border"
             allowFullScreen
             loading="lazy"
