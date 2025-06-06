@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import siteConfig from '../lib/siteConfig.json'
 
 export default function HeaderMain() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -25,14 +26,14 @@ export default function HeaderMain() {
             />
           </span>
           <span className="text-white font-semibold text-base leading-tight uppercase tracking-wide">
-            BACCONNAIS&nbsp;Corentin
+            {siteConfig.lastName}&nbsp;{siteConfig.firstName}
           </span>
         </Link>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center space-x-6">
           <a
-            href="https://www.doctolib.fr/osteopathe/saint-nazaire/corentin-bacconnais/booking/motives?specialityId=10&telehealth=false&placeId=practice-598028"
+            href={siteConfig.doctolibUrl}
             target="_blank"
             rel="noopener noreferrer"
             className={`bg-[#E8D5CC] text-[#543C30] px-5 py-2 rounded hover:bg-[#d3c2b6] ${commonBtnClass}`}
@@ -40,10 +41,10 @@ export default function HeaderMain() {
             Prendre RDV
           </a>
           <a
-            href="tel:0761618447"
+            href={"tel:" + siteConfig.telephone}
             className="text-white text-[18px] font-semibold hover:text-[#E8D5CC]"
           >
-            07 61 61 84 47
+            {siteConfig.telephone}
           </a>
         </div>
 
