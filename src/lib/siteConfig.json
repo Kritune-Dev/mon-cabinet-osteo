@@ -4,7 +4,9 @@
   "profession": "Ostéopathe D.O.",
   "telephone": "07 61 61 84 47",
   "email": "corentin@baccosteo.fr",
+  "adress": "1 allée Emile Polo, 44250 Saint-Brévin-les-Pins",
   "location": "Saint-Brévin-les-Pins",
   "doctolibUrl": "https://www.doctolib.fr/osteopathe/saint-nazaire/corentin-bacconnais/booking/motives?specialityId=10&telehealth=false&placeId=practice-598028",
-  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Corentin+Bacconnais+Ostéopathe+Saint-Brévin-les-Pins"
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Corentin+Bacconnais+Ostéopathe+Saint-Brévin-les-Pins",
+  "mapsUrlEmbedded": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2960.483978259082!2d-2.1614296235415034!3d47.21747561476733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48056919bfde31d9%3A0xd33627a2ac4cab9e!2sOst%C3%A9opathe%20-%20Corentin%20BACCONNAIS%20-%20St%20Br%C3%A9vin!5e1!3m2!1sfr!2sfr!4v1749247359721!5m2!1sfr!2sfr"
 }
