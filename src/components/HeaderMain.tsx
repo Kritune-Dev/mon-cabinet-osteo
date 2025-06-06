@@ -7,13 +7,12 @@ import siteConfig from '../lib/siteConfig.json'
 
 export default function HeaderMain() {
   const [menuOpen, setMenuOpen] = useState(false)
-
   const commonBtnClass = 'uppercase tracking-widest font-semibold transition-colors'
 
   return (
     <nav className="bg-[#543C30] fixed w-full z-50 top-0 shadow-md h-16">
       <div className="max-w-5xl mx-auto flex items-center justify-between px-4 h-full">
-        {/* Logo arrondi + nom à côté */}
+        {/* Logo arrondi + nom à côté (nom masqué en mobile) */}
         <Link href="/" className="flex items-center gap-3 group">
           <span className="rounded-full bg-white flex items-center justify-center w-10 h-10 overflow-hidden">
             <Image
@@ -25,7 +24,7 @@ export default function HeaderMain() {
               priority
             />
           </span>
-          <span className="text-white font-semibold text-base leading-tight uppercase tracking-wide">
+          <span className="text-white font-semibold text-base leading-tight uppercase tracking-wide hidden md:inline">
             {siteConfig.lastName}&nbsp;{siteConfig.firstName}
           </span>
         </Link>
@@ -36,7 +35,7 @@ export default function HeaderMain() {
             href={siteConfig.doctolibUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`bg-[#E8D5CC] text-[#543C30] px-5 py-2 rounded hover:bg-[#d3c2b6] ${commonBtnClass}`}
+            className={`bg-[#E8D5CC] text-[#543C30] px-7 py-2 rounded hover:bg-[#d3c2b6] ${commonBtnClass}`}
           >
             Prendre RDV
           </a>
@@ -51,10 +50,10 @@ export default function HeaderMain() {
         {/* Mobile */}
         <div className="md:hidden flex items-center space-x-3">
           <a
-            href="https://www.doctolib.fr/osteopathe/saint-nazaire/corentin-bacconnais/booking/motives?specialityId=10&telehealth=false&placeId=practice-598028"
+            href={siteConfig.doctolibUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`bg-[#E8D5CC] text-[#543C30] px-4 py-1 rounded ${commonBtnClass}`}
+            className={`bg-[#E8D5CC] text-[#543C30] px-7 py-1 rounded ${commonBtnClass}`}
           >
             RDV
           </a>
