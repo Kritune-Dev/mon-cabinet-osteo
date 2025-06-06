@@ -2,78 +2,92 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function HeaderMain() {
   const [menuOpen, setMenuOpen] = useState(false)
 
+  const commonBtnClass = 'uppercase tracking-widest font-semibold transition-colors'
+
   return (
-    <nav id="navbar" className="bg-[#543C30] fixed w-full z-50 top-0 shadow-md">
-      <div className="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+    <nav className="bg-[#543C30] fixed w-full z-50 top-0 shadow-md h-16">
+      <div className="max-w-5xl mx-auto flex items-center justify-between px-4 h-full">
+        {/* Logo arrondi + nom à côté */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <span className="rounded-full bg-white flex items-center justify-center w-10 h-10 overflow-hidden">
+            <Image
+              src="/images/logo.png"
+              alt="Logo Ostéopathie"
+              width={40}
+              height={40}
+              className="object-contain"
+              priority
+            />
+          </span>
+          <span className="text-white font-semibold text-base leading-tight uppercase tracking-wide">
+            BACCONNAIS&nbsp;Corentin
+          </span>
+        </Link>
 
-        {/* Nom/prénom à gauche */}
-        <div>
-          <Link href="/" className="text-white font-semibold text-lg uppercase tracking-wide hover:text-[#E8D5CC]" title="Accueil">
-            Bacconnais Corentin
-          </Link>
-        </div>
-
-        {/* Boutons RDV + téléphone collés à droite */}
+        {/* Desktop */}
         <div className="hidden md:flex items-center space-x-6">
           <a
             href="https://www.doctolib.fr/osteopathe/saint-nazaire/corentin-bacconnais/booking/motives?specialityId=10&telehealth=false&placeId=practice-598028"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-rdv bg-[#E8D5CC] text-[#543C30] px-5 py-2 rounded uppercase tracking-widest font-semibold hover:bg-[#d3c2b6] transition-colors"
-            aria-label="Prendre rendez-vous"
+            className={`bg-[#E8D5CC] text-[#543C30] px-5 py-2 rounded hover:bg-[#d3c2b6] ${commonBtnClass}`}
           >
-            PRENDRE RDV
+            Prendre RDV
           </a>
-
           <a
             href="tel:0761618447"
-            className="text-[18px] font-semibold tracking-wide text-white hover:text-[#E8D5CC] transition-colors"
-            aria-label="Téléphone"
+            className="text-white text-[18px] font-semibold hover:text-[#E8D5CC]"
           >
             07 61 61 84 47
           </a>
         </div>
 
-        {/* Mobile buttons */}
+        {/* Mobile */}
         <div className="md:hidden flex items-center space-x-3">
           <a
             href="https://www.doctolib.fr/osteopathe/saint-nazaire/corentin-bacconnais/booking/motives?specialityId=10&telehealth=false&placeId=practice-598028"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-rdv bg-[#E8D5CC] text-[#543C30] px-4 py-1 rounded uppercase tracking-widest font-semibold"
-            aria-label="Prendre rendez-vous"
+            className={`bg-[#E8D5CC] text-[#543C30] px-4 py-1 rounded ${commonBtnClass}`}
           >
-            PRENDRE RDV
+            RDV
           </a>
-
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
             className="text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E8D5CC]"
           >
-            {menuOpen ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-7 w-7"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              {menuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              ) : (
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" />
-              </svg>
-            )}
+              )}
+            </svg>
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Menu mobile */}
       {menuOpen && (
-        <div className="md:hidden bg-[#543C30] px-4 py-6 space-y-4 uppercase tracking-widest text-white text-center font-semibold">
-          <Link href="/" onClick={() => setMenuOpen(false)} className="block hover:text-[#E8D5CC]">Accueil</Link>
-          <Link href="/prestations" onClick={() => setMenuOpen(false)} className="block hover:text-[#E8D5CC]">Prestations</Link>
-          <Link href="/contacts" onClick={() => setMenuOpen(false)} className="block hover:text-[#E8D5CC]">Contacts</Link>
+        <div className="md:hidden bg-[#543C30] px-4 py-6 space-y-4 text-white text-center font-semibold uppercase tracking-widest">
+          {['/', '/prestations', '/contacts'].map((href, i) => (
+            <Link key={i} href={href} onClick={() => setMenuOpen(false)} className="block hover:text-[#E8D5CC]">
+              {href === '/' ? 'Accueil' : href.slice(1)}
+            </Link>
+          ))}
         </div>
       )}
     </nav>

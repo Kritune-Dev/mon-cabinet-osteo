@@ -12,8 +12,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
       <body className="bg-background font-sans text-text min-h-screen">
-        <HeaderMain />
-        <HeaderSecondary />
+        <header>
+          <HeaderMain />
+          <HeaderSecondary />
+        </header>
         <main className="max-w-5xl mx-auto px-4 py-8">
           {children}
         </main>
