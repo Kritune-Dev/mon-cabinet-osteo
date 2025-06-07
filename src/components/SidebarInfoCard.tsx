@@ -5,15 +5,19 @@ import GoogleReviewsPopup from '@/components/GoogleReviewsPopup'
 
 import { Suspense } from 'react'
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : 'http://localhost:3000'
+const baseUrl =
+  process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : process.env.NEXT_PUBLIC_SITE_URL
+      ? process.env.NEXT_PUBLIC_SITE_URL
+      : 'http://localhost:3000'
 
 export default async function SidebarInfoCard() {
   // Fetch côté serveur (server component)
-  const res = await fetch(`${baseUrl}/api/avis-google`, {
-    next: { revalidate: 86400 }
-  })
+  const res = await fetch(`${baseUrl}/api/avis-google`, { next: { revalidate: 86400 } })
+  if (!res.ok) {
+    throw new Error('Erreur lors de la récupération des avis Google')
+  }
   const { avis, totalAvis, moyenne } = await res.json()
   console.log(avis, totalAvis, moyenne)
   // avis est un tableau d'avis Google, totalAvis est le nombre total, moyenne est la note moyenne
