@@ -5,9 +5,13 @@ import GoogleReviewsPopup from '@/components/GoogleReviewsPopup'
 
 import { Suspense } from 'react'
 
+const baseUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : 'http://localhost:3000'
+
 export default async function SidebarInfoCard() {
   // Fetch côté serveur (server component)
-  const res = await fetch(`http://localhost:3000/api/avis-google`, {
+  const res = await fetch(`${baseUrl}/api/avis-google`, {
     next: { revalidate: 86400 }
   })
   const { avis, totalAvis, moyenne } = await res.json()
