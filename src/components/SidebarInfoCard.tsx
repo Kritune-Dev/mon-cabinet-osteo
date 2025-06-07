@@ -14,6 +14,7 @@ const baseUrl =
 
 export default async function SidebarInfoCard() {
   // Fetch côté serveur (server component)
+  console.log('Fetching Google reviews from:', `${baseUrl}/api/avis-google`)
   const res = await fetch(`${baseUrl}/api/avis-google`, { next: { revalidate: 86400 } })
   if (!res.ok) {
     throw new Error('Erreur lors de la récupération des avis Google')
@@ -21,6 +22,11 @@ export default async function SidebarInfoCard() {
   const { avis, totalAvis, moyenne } = await res.json()
   console.log(avis, totalAvis, moyenne)
   // avis est un tableau d'avis Google, totalAvis est le nombre total, moyenne est la note moyenne
+
+  console.log('GOOGLE_PLACE_API_KEY:', process.env.GOOGLE_PLACE_API_KEY)
+  console.log('GOOGLE_PLACE_ID:', process.env.GOOGLE_PLACE_ID)
+  console.log('NEXT_PUBLIC_SITE_URL:', process.env.NEXT_PUBLIC_SITE_URL)
+  console.log('VERCEL_URL:', process.env.VERCEL_URL)
 
   return (
     <div
