@@ -16,8 +16,8 @@ export default function SiteFooter() {
             {siteConfig.firstName} {siteConfig.lastName}
           </span>
           <span className="block">{siteConfig.profession}</span>
-          <span className="block">{siteConfig.adress}</span>
-          <span className="block">Tél : <a href={`tel:${siteConfig.telephone}`} className="underline hover:text-[#E08A3D]">{siteConfig.telephone}</a></span>
+          <span className="block">{siteConfig.address}</span>
+          <span className="block">Tél : <a href={`tel:${siteConfig.phone}`} className="underline hover:text-[#E08A3D]">{siteConfig.phone}</a></span>
           <span className="block">Email : <a href={`mailto:${siteConfig.email}`} className="underline hover:text-[#E08A3D]">{siteConfig.email}</a></span>
         </div>
         {/* Logo au centre */}

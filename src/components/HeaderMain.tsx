@@ -7,6 +7,7 @@ import siteConfig from '../lib/siteConfig.json'
 
 export default function HeaderMain() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [consultationsOpen, setConsultationsOpen] = useState(false)
   const commonBtnClass = 'uppercase tracking-widest font-semibold transition-colors'
 
   return (
@@ -51,10 +52,10 @@ export default function HeaderMain() {
             </a>
             <a
               id="header-main-phone"
-              href={"tel:" + siteConfig.telephone}
+              href={"tel:" + siteConfig.phone}
               className="text-white text-[18px] font-semibold hover:text-[#E8D5CC]"
             >
-              {siteConfig.telephone}
+              {siteConfig.phone}
             </a>
           </div>
 
@@ -100,11 +101,57 @@ export default function HeaderMain() {
           id="header-main-mobile-menu"
           className="md:hidden bg-[#543C30] px-4 py-6 space-y-4 text-white text-center font-semibold uppercase tracking-widest"
         >
-          {['/', '/prestations', '/contacts'].map((href, i) => (
-            <Link key={i} href={href} onClick={() => setMenuOpen(false)} className="block hover:text-[#E8D5CC]">
-              {href === '/' ? 'Accueil' : href.slice(1)}
-            </Link>
-          ))}
+          <Link href="/" onClick={() => setMenuOpen(false)} className="block hover:text-[#E8D5CC]">
+            Accueil
+          </Link>
+          <Link href="/a-propos" onClick={() => setMenuOpen(false)} className="block hover:text-[#E8D5CC]">
+            À propos
+          </Link>
+          <div>
+            <button
+              className="w-full flex items-center justify-center gap-2 hover:text-[#E8D5CC] focus:outline-none"
+              aria-expanded={consultationsOpen}
+              aria-controls="consultations-submenu"
+              onClick={() => setConsultationsOpen((v) => !v)}
+              type="button"
+            >
+              Consultations
+              <svg
+                className={`inline-block transition-transform ${consultationsOpen ? 'rotate-180' : ''}`}
+                width={18}
+                height={18}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            {consultationsOpen && (
+              <div id="consultations-submenu" className="mt-2 space-y-2 text-sm">
+                <Link href="/adulte" onClick={() => { setMenuOpen(false); setConsultationsOpen(false); }} className="block hover:text-[#E8D5CC]">
+                  Adulte
+                </Link>
+                <Link href="/enfants" onClick={() => { setMenuOpen(false); setConsultationsOpen(false); }} className="block hover:text-[#E8D5CC]">
+                  Enfants
+                </Link>
+                <Link href="/femme-enceinte" onClick={() => { setMenuOpen(false); setConsultationsOpen(false); }} className="block hover:text-[#E8D5CC]">
+                  Femmes enceintes
+                </Link>
+                <Link href="/sportif" onClick={() => { setMenuOpen(false); setConsultationsOpen(false); }} className="block hover:text-[#E8D5CC]">
+                  Sportif
+                </Link>
+              </div>
+            )}
+          </div>
+          <Link href="/contact" onClick={() => setMenuOpen(false)} className="block hover:text-[#E8D5CC]">
+            Contact
+          </Link>
+          <Link href="/mentions-legales" onClick={() => setMenuOpen(false)} className="block hover:text-[#E8D5CC]">
+            Mentions légales
+          </Link>
         </div>
       )}
     </nav>

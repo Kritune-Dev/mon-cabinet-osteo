@@ -1,6 +1,7 @@
 import siteConfig from '../lib/siteConfig.json'
 import Image from 'next/image'
 import Head from 'next/head'
+import ConsultationCards from '@/components/ConsultationCards'
 
 export default function Home() {
   return (
@@ -64,7 +65,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col justify-center w-full">
               <p className="text-base md:text-lg text-left max-w-2xl mt-6 md:mt-0" itemProp="description">
-                Bienvenue au cabinet d&apos;ostéopathie de <strong>{siteConfig.firstName} {siteConfig.lastName}</strong>, situé à <span itemProp="address">{siteConfig.adress}</span>.<br />
+                Bienvenue au cabinet d&apos;ostéopathie de <strong>{siteConfig.firstName} {siteConfig.lastName}</strong>, situé à <span itemProp="address">{siteConfig.address}</span>.<br />
                 Je vous accueille dans un espace moderne, calme et accessible à tous.<br />
                 Mon approche est centrée sur l&apos;écoute, la bienveillance et l&apos;adaptation des soins à chaque patient.<br />
                 Le cabinet est équipé pour garantir votre confort et votre sécurité lors de chaque consultation.
@@ -76,24 +77,7 @@ export default function Home() {
             <h2 id="consultations-title" className="text-2xl font-bold mb-3 text-left" style={{ color: "#1a120b" }}>
               À qui s&apos;adressent les consultations ?
             </h2>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2" aria-label="Types de patients">
-              <li className="bg-[#F5E9E3] rounded-lg p-4 shadow flex flex-col items-start" itemProp="medicalSpecialty">
-                <span className="font-bold text-lg" style={{ color: "#1a120b" }}>Adultes</span>
-                <span className="text-sm">Gestion des douleurs, troubles musculo-squelettiques, stress, troubles digestifs…</span>
-              </li>
-              <li className="bg-[#F5E9E3] rounded-lg p-4 shadow flex flex-col items-start" itemProp="medicalSpecialty">
-                <span className="font-bold text-lg" style={{ color: "#1a120b" }}>Sportifs</span>
-                <span className="text-sm">Préparation, récupération, prévention des blessures, suivi personnalisé.</span>
-              </li>
-              <li className="bg-[#F5E9E3] rounded-lg p-4 shadow flex flex-col items-start" itemProp="medicalSpecialty">
-                <span className="font-bold text-lg" style={{ color: "#1a120b" }}>Femmes enceintes</span>
-                <span className="text-sm">Accompagnement de la grossesse, soulagement des douleurs lombaires, préparation à l&apos;accouchement.</span>
-              </li>
-              <li className="bg-[#F5E9E3] rounded-lg p-4 shadow flex flex-col items-start" itemProp="medicalSpecialty">
-                <span className="font-bold text-lg" style={{ color: "#1a120b" }}>Enfants &amp; nourrissons</span>
-                <span className="text-sm">Suivi du développement, troubles du sommeil, coliques, plagiocéphalie…</span>
-              </li>
-            </ul>
+            <ConsultationCards />
             <p className="text-left mt-2">
               Chaque consultation est adaptée à l&apos;âge, au mode de vie et aux besoins spécifiques de chacun.
             </p>
@@ -122,7 +106,7 @@ export default function Home() {
               Se rendre au cabinet
             </h2>
             <p className="text-left mb-2">
-              Le cabinet est idéalement situé à <strong>{siteConfig.adress}</strong>.
+              Le cabinet est idéalement situé à <strong>{siteConfig.address}</strong>.
               Il est facilement accessible en voiture, à vélo ou à pied, avec un parking à proximité immédiate.
             </p>
             <ul className="list-disc list-inside text-base text-left mb-2" aria-label="Temps d'accès depuis les points principaux">
@@ -156,7 +140,7 @@ export default function Home() {
             </h2>
             <p className="text-left mb-2">
               Pour toute question ou prise de rendez-vous, contactez-moi par téléphone au{' '}
-              <a id="contact-phone" href={`tel:${siteConfig.telephone}`} className="underline font-semibold" aria-label={`Téléphoner au ${siteConfig.telephone}`}>{siteConfig.telephone}</a>
+              <a id="contact-phone" href={`tel:${siteConfig.phone}`} className="underline font-semibold" aria-label={`Téléphoner au ${siteConfig.phone}`}>{siteConfig.phone}</a>
               {' '}ou directement via{' '}
               <a id="contact-doctolib" href={siteConfig.doctolibUrl} target="_blank" rel="noopener noreferrer" className="underline font-semibold text-[#E08A3D] hover:text-[#c76d1e]" aria-label="Prendre rendez-vous sur Doctolib">
                 Doctolib

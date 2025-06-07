@@ -1,8 +1,19 @@
 import Image from 'next/image'
-import { FaUserMd, FaMapMarkerAlt, FaStar } from 'react-icons/fa'
+import { FaUserMd, FaMapMarkerAlt} from 'react-icons/fa'
 import siteConfig from '../lib/siteConfig.json'
+import GoogleReviewsPopup from '@/components/GoogleReviewsPopup'
 
-export default function SidebarInfoCard() {
+import { Suspense } from 'react'
+
+export default async function SidebarInfoCard() {
+  // Fetch côté serveur (server component)
+  const res = await fetch(`http://localhost:3000/api/avis-google`, {
+    next: { revalidate: 86400 }
+  })
+  const { avis, totalAvis, moyenne } = await res.json()
+  console.log(avis, totalAvis, moyenne)
+  // avis est un tableau d'avis Google, totalAvis est le nombre total, moyenne est la note moyenne
+
   return (
     <div
       id="sidebar-info-card"
@@ -38,7 +49,7 @@ export default function SidebarInfoCard() {
               {siteConfig.location}
             </a>
           </p>
-          <p className="mb-1 text-center">{siteConfig.adress}</p>
+          <p className="mb-1 text-center">{siteConfig.address}</p>
           <p className="mb-4 text-center">Accessible PMR, parking à proximité</p>
           <a
             href={siteConfig.doctolibUrl}
@@ -48,18 +59,18 @@ export default function SidebarInfoCard() {
           </a>
         </div>
 
-        {/* Google Reviews Placeholder */}
+        {/* Google Reviews Summary */}
         <div className="mt-8 w-full flex flex-col items-center">
-          <div className="w-full bg-[#F5E9E3] border border-[#E8D5CC] rounded-lg py-4 px-3 flex flex-col items-center mb-6">
-            <div className="flex items-center gap-2 mb-1">
-              <FaStar className="text-yellow-500" />
-              <span className="font-bold text-[#2D1B12]">Avis Google</span>
-            </div>
-            <span className="text-sm text-[#543C30] opacity-70">Les avis de vos patients s&apos;afficheront ici prochainement.</span>
-          </div>
+          <Suspense fallback={<div>Chargement des avis Google…</div>}>
+            <GoogleReviewsPopup
+              moyenne={moyenne}
+              totalAvis={totalAvis}
+              avis={avis}
+            />
+          </Suspense>
         </div>
 
-        <div className="w-full">
+        <div className="w-full mt-8">
           <h3 className="text-lg font-semibold mb-3 text-center text-[#2D1B12]">Horaires d&apos;ouverture</h3>
           <table className="w-full text-sm border-separate [border-spacing:0.5rem]">
             <tbody>

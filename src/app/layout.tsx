@@ -3,6 +3,7 @@ import { ReactNode } from 'react'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import HeaderMain from '@/components/HeaderMain'
 import HeaderSecondary from '@/components/HeaderSecondary'
+import DesktopNavbar from '@/components/DesktopNavbar'
 import SidebarInfoCard from '@/components/SidebarInfoCard'
 import SiteFooter from '@/components/SiteFooter'
 
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <header id="site-header" role="banner">
           <HeaderMain />
           <HeaderSecondary />
+          <DesktopNavbar />
         </header>
 
         <div className="flex flex-col lg:flex-row max-w-[1400px] mx-auto w-full py-8" id="main-layout">
