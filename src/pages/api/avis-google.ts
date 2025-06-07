@@ -1,9 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import apiGoogle from '@/lib/apiGoogle.json'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const placeId = apiGoogle.placeID;
-  const apiKey = apiGoogle.placeApi;
+  const placeId = process.env.GOOGLE_PLACE_ID;
+  const apiKey = process.env.GOOGLE_PLACE_API_KEY;
 
   const response = await fetch(
   `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews,user_ratings_total,rating&language=fr&key=${apiKey}`
