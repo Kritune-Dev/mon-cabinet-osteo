@@ -120,13 +120,13 @@ export default function Home() {
             <p className="text-left text-sm text-[#543C30]">
               Arrêt de bus à moins de 200m – Cabinet accessible PMR – Parking gratuit devant le cabinet.
             </p>
-            <div className="mt-4">
+            <div className="mt-4 flex justify-center">
               <a
                 id="access-googlemaps"
                 href={siteConfig.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#E8D5CC] text-[#1a120b] font-semibold py-2 px-4 rounded-lg shadow hover:bg-[#e2c7b8] transition"
+                className="block w-full max-w-xs sm:max-w-sm md:max-w-md bg-[#E8D5CC] text-[#1a120b] font-semibold py-2 px-4 rounded-lg shadow hover:bg-[#e2c7b8] transition text-center"
                 aria-label="Voir l'itinéraire vers le cabinet sur Google Maps"
               >
                 Voir l&apos;itinéraire sur Google Maps

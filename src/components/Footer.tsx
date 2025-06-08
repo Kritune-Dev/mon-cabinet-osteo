@@ -1,12 +1,12 @@
 import siteConfig from '@/lib/siteConfig.json'
 import Image from 'next/image'
 
-export default function SiteFooter() {
+export default function Footer() {
   return (
     <footer
       id="site-footer"
       role="contentinfo"
-      className="w-screen left-1/2 right-1/2 -translate-x-1/2 relative bg-[#F5E9E3] border-t border-[#E8D5CC] mt-8 py-6 px-4"
+      className="w-screen left-1/2 right-1/2 -translate-x-1/2 relative bg-[#F5E9E3] border-t border-[#E8D5CC] mt-0 md:mt-8 py-6 px-4"
       style={{ marginLeft: 'calc(50% - 50vw)', marginRight: 'calc(50% - 50vw)' }}
     >
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[#543C30]">

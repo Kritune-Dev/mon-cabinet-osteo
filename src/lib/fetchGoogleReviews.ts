@@ -1,5 +1,7 @@
+import type { GoogleReviewsResponse } from '@/types/googleReviews'
+
 // lib/fetchGoogleReviews.ts
-export async function fetchGoogleReviews() {
+export async function fetchGoogleReviews(): Promise<GoogleReviewsResponse> {
   const placeId = process.env.GOOGLE_PLACE_ID
   const apiKey = process.env.GOOGLE_PLACE_API_KEY
 

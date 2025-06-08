@@ -1,14 +1,14 @@
+'use client'
+
+import { useState } from 'react'
+import ReviewsPopup from '@/components/ReviewsPopup'
 import Image from 'next/image'
-import { FaUserMd, FaMapMarkerAlt} from 'react-icons/fa'
+import { FaUserMd, FaMapMarkerAlt, FaStar } from 'react-icons/fa'
 import siteConfig from '../lib/siteConfig.json'
-import GoogleReviewsPopup from '@/components/GoogleReviewsPopup'
+import type { GoogleReviewsResponse } from '@/types/googleReviews'
 
-import { Suspense } from 'react'
-import { fetchGoogleReviews } from '@/lib/fetchGoogleReviews'
-
-
-export default async function SidebarInfoCard() {
-  const { avis, totalAvis, moyenne } = await fetchGoogleReviews()
+export default function DesktopSidebar({ avis, totalAvis, moyenne }: GoogleReviewsResponse) {
+  const [open, setOpen] = useState(false)
 
   return (
     <div
@@ -57,13 +57,22 @@ export default async function SidebarInfoCard() {
 
         {/* Google Reviews Summary */}
         <div className="mt-8 w-full flex flex-col items-center">
-          <Suspense fallback={<div>Chargement des avis Google…</div>}>
-            <GoogleReviewsPopup
-              moyenne={moyenne}
-              totalAvis={totalAvis}
-              avis={avis}
-            />
-          </Suspense>
+          <button
+            className="flex items-center gap-2 bg-[#F5E9E3] border border-[#E8D5CC] rounded-lg px-4 py-2 shadow font-semibold text-[#2D1B12] text-base hover:bg-[#e2c7b8] transition"
+            aria-label={`Voir les ${totalAvis ?? 0} avis Google`}
+            onClick={() => setOpen(true)}
+          >
+            <FaStar className="text-yellow-500" aria-hidden="true" />
+            <span className="font-bold">{moyenne?.toFixed(1) ?? '-'}</span>
+            <span className="text-sm">({totalAvis ?? 0} avis Google)</span>
+          </button>
+          <ReviewsPopup
+            moyenne={moyenne}
+            totalAvis={totalAvis}
+            avis={avis}
+            open={open}
+            onClose={() => setOpen(false)}
+          />
         </div>
 
         <div className="w-full mt-8">
