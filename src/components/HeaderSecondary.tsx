@@ -9,8 +9,9 @@ export default function SecondaryHeader() {
       <section
         id="header-secondary-section"
         className={`
-          relative w-full pt-16 pb-3 sm:pb-5 min-h-[110px] sm:min-h-[140px] overflow-hidden
+          relative w-full pb-3 sm:pb-5 min-h-[110px] sm:min-h-[140px] overflow-hidden
           bg-[#F5E9E3] md:bg-transparent
+          pt-16
         `}
       >
         {/* Image de fond avec dégradé (masquée en mobile) */}
@@ -40,7 +41,7 @@ export default function SecondaryHeader() {
         {/* Contenu principal aligné à gauche, bannière à droite, centrés verticalement */}
         <div
           id="header-secondary-content"
-          className="relative z-10 w-full flex items-center justify-between min-h-[110px] sm:min-h-[140px]"
+          className="relative z-10 w-full flex items-center justify-between min-h-[110px] sm:min-h-[140px] mx-auto px-4 sm:px-6 md:px-8"
         >
           {/* Profil à gauche */}
           <div

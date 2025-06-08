@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# mon-cabinet-osteo
 
-## Getting Started
+Site web du cabinet d’ostéopathie de Corentin Bacconnais à Saint-Brevin-les-Pins, réalisé avec [Next.js](https://nextjs.org).
 
-First, run the development server:
+## Fonctionnalités principales
+
+- Présentation du cabinet, des consultations et de l’équipe
+- Prise de rendez-vous en ligne (Doctolib)
+- Affichage des avis Google en temps réel
+- Responsive design (mobile & desktop)
+- Accessibilité et SEO optimisés
+
+## Démarrage local
+
+Installez les dépendances puis lancez le serveur de développement :
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# ou
+yarn install && yarn dev
+# ou
+pnpm install && pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Variables d’environnement
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Créez un fichier `.env.local` à la racine avec :
 
-## Learn More
+```
+GOOGLE_PLACE_API_KEY=...
+GOOGLE_PLACE_ID=...
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Déploiement
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Le site est optimisé pour un déploiement sur [Vercel](https://vercel.com/).
+Ajoutez vos variables d’environnement dans les paramètres du projet Vercel.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Structure du projet
 
-## Deploy on Vercel
+- `/src/app` : pages et layout Next.js
+- `/src/components` : composants React réutilisables
+- `/src/lib` : fonctions utilitaires et appels API
+- `/src/types` : définitions TypeScript
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Accessibilité & SEO
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Navigation clavier et liens d’accès rapide
+- Balises sémantiques et ARIA
+- Métadonnées Open Graph et Twitter Card
+
+## Auteur
+
+Corentin Bacconnais – [baccosteo.fr](https://www.baccosteo.fr)
+
+---
+
+> Ce projet utilise [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) pour l’optimisation des polices.

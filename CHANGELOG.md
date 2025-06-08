@@ -10,7 +10,8 @@ Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/)
 -
 
 ### Modifié
--
+- Update README.md
+- Uptade Style (Headers, NavBar, )
 
 ### Corrigé
 -

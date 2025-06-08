@@ -53,10 +53,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <HeaderSecondary />
           <DesktopNavbar />
         </header>
-        <div className="flex flex-col lg:flex-row max-w-[1400px] mx-auto w-full py-8" id="main-layout">
+        <div className="flex flex-col lg:flex-row max-w-[1400px] mx-auto w-full py-0 sm:py-8" id="main-layout">
           <main
             id="main"
-            className="w-full lg:w-3/5 bg-white/90 border border-[#E8D5CC] rounded-xl shadow-lg p-4 sm:p-8"
+            className="w-full lg:w-3/5 bg-white/90 border border-[#E8D5CC] rounded-xl shadow-lg p-0 sm:p-8"
             tabIndex={-1}
             role="main"
             aria-label="Contenu principal"

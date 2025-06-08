@@ -29,7 +29,7 @@ export default function DesktopNavbar() {
       aria-label="Navigation principale"
     >
       <div className="w-full mx-auto max-w-6xl">
-        <ul className="flex flex-row items-center justify-center gap-8 py-2 px-8 font-semibold text-[#543C30]">
+        <ul className="flex flex-row items-center justify-between gap-8 py-2 px-8 font-semibold text-[#543C30]">
           <li>
             <Link href="/" className="hover:text-[#E08A3D] transition">Accueil</Link>
           </li>

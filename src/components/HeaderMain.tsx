@@ -8,11 +8,13 @@ import siteConfig from '../lib/siteConfig.json'
 export default function HeaderMain() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [consultationsOpen, setConsultationsOpen] = useState(false)
-  const commonBtnClass = 'uppercase tracking-widest font-semibold transition-colors'
 
   return (
-    <nav id="header-main-nav" className="bg-[#543C30] fixed w-full z-50 top-0 shadow-md h-16">
-      <div className="max-w-5xl mx-auto flex items-center justify-between px-4 h-full">
+    <nav
+      id="header-main-nav"
+      className="bg-[#543C30] fixed w-full z-50 top-0 shadow-md h-16"
+    >
+      <div className="w-full px-4 sm:px-6 md:px-8 flex items-center justify-between h-full mx-auto max-w-screen-xl">
         {/* Logo + nom à gauche */}
         <Link
           id="header-main-logo"
@@ -46,14 +48,14 @@ export default function HeaderMain() {
               href={siteConfig.doctolibUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`bg-[#E8D5CC] text-[#543C30] px-7 py-2 rounded hover:bg-[#d3c2b6] ${commonBtnClass}`}
+              className="inline-block bg-[#E8D5CC] text-[#543C30] font-semibold py-2 px-4 rounded-lg shadow hover:bg-[#e2c7b8] transition"
             >
-              Prendre RDV
+              Prendre rendez-vous
             </a>
             <a
               id="header-main-phone"
               href={"tel:" + siteConfig.phone}
-              className="text-white text-[18px] font-semibold hover:text-[#E8D5CC]"
+              className="font-bold underline hover:text-[#E08A3D] text-[#1a120b]"
             >
               {siteConfig.phone}
             </a>
@@ -66,7 +68,7 @@ export default function HeaderMain() {
               href={siteConfig.doctolibUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`bg-[#E8D5CC] text-[#543C30] px-7 py-1 rounded ${commonBtnClass}`}
+              className="inline-block bg-[#E8D5CC] text-[#543C30] font-semibold py-2 px-4 rounded-lg shadow hover:bg-[#e2c7b8] transition"
             >
               RDV
             </a>
@@ -74,7 +76,7 @@ export default function HeaderMain() {
               id="header-main-menu-btn"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-              className="text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E8D5CC]"
+              className="text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E8D5CC]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
